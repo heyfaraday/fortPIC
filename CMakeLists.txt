@@ -11,4 +11,4 @@ add_subdirectory(lib)
 
 set(CMAKE_Fortran_COMPILER_ID Intel)
 
-set(CMAKE_Fortran_FLAGS "-warn all -check all")
+set(CMAKE_Fortran_FLAGS "-warn all -check all -O2")
