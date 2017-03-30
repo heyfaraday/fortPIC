@@ -2,4 +2,4 @@
 build/
 
 # Fortran module files
-.mod
+*.mod
