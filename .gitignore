@@ -1,1 +1,5 @@
+# CMake build folder
 build/
+
+# Fortran module files
+.mod
