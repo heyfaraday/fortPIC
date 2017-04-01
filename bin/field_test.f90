@@ -1,12 +1,12 @@
-program hello_world_f90
+program field_test
 
-   use field, only: E, B
+    use field, only: E, B
 
-   implicit none
+    implicit none
 
-   double precision, dimension(3) :: r
-   double precision :: t
+    double precision, dimension(3) :: r
+    double precision :: t
 
-   write(*, *)  E(t, r)
+    write(*, *)  E(t, r)
 
 end program

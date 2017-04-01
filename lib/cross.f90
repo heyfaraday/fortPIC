@@ -3,12 +3,12 @@ module cross
     implicit none
 
     contains
-    
+        
         function cross_product(a, b)
-
+            
             implicit none
             double precision, dimension(3) :: cross_product
-            double precision, dimension(3) :: a, b
+            double precision, dimension(3), intent(in) :: a, b
 
             cross_product(1) = a(2) * b(3) - a(3) * b(2)
             cross_product(2) = a(3) * b(1) - a(1) * b(3)
@@ -21,7 +21,7 @@ module cross
 
             implicit none
             double precision :: dot_product
-            double precision, dimension(3) :: a, b
+            double precision, dimension(3), intent(in) :: a, b
 
             dot_product = SUM(a * b)
         
@@ -32,7 +32,7 @@ module cross
 
             implicit none
             double precision :: dot_product_gamma
-            double precision, dimension(4) :: a, b
+            double precision, dimension(4), intent(in) :: a, b
 
             dot_product_gamma = a(1) * b(1) - SUM(a(2:4) * b(2:4))
         
