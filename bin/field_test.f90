@@ -1,6 +1,7 @@
 program field_test
 
     use field, only: E, B
+    use parameters
 
     implicit none
 
@@ -8,5 +9,6 @@ program field_test
     double precision :: t
 
     write(*, *)  E(t, r)
+    write(*, *)  X_input
 
 end program

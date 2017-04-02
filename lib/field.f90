@@ -7,11 +7,11 @@ module field
     function E(t, r)
 
         implicit none
-        double precision, dimension(3) :: E
+        double precision, dimension(0:3) :: E
         double precision, intent(in) :: t
-        double precision, dimension(3), intent(in) :: r
+        double precision, dimension(0:3), intent(in) :: r
 
-        E = (/1.d0, 0.d0, 0.d0/)
+        E = (/0.d0, 1.d0, 0.d0, 0.d0/)
         
     end function E
 
@@ -19,11 +19,11 @@ module field
     function B(t, r)
 
         implicit none
-        double precision, dimension(3) :: B
+        double precision, dimension(0:3) :: B
         double precision, intent(in) :: t
-        double precision, dimension(3), intent(in) :: r
+        double precision, dimension(0:3), intent(in) :: r
 
-        B = (/0.d0, 0.d0, 0.d0/)
+        B = (/0.d0, 0.d0, 0.d0, 0.d0/)
 
     end function B
 
