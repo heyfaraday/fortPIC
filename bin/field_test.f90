@@ -1,6 +1,6 @@
 program field_test
 
-    use field, only: E, B
+    use field, only: E_field, B_field
     use parameters
 
     implicit none
@@ -8,7 +8,7 @@ program field_test
     double precision, dimension(3) :: r
     double precision :: t
 
-    write(*, *)  E(t, r)
+    write(*, *)  E_field(t,r)(t, r)
     write(*, *)  X_input
 
-end program
+end program field_test

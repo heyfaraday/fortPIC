@@ -1,30 +1,30 @@
 module field
 
-    implicit none
+  implicit none
 
-    contains
-    
-    function E(t, r)
+  contains
 
-        implicit none
-        double precision, dimension(0:3) :: E
-        double precision, intent(in) :: t
-        double precision, dimension(0:3), intent(in) :: r
+    function E_field(t, r)
 
-        E = (/0.d0, 1.d0, 0.d0, 0.d0/)
-        
-    end function E
+      implicit none
+      double precision, dimension(1:3) :: E_field
+      double precision, intent(in) :: t
+      double precision, dimension(1:3), intent(in) :: r
+
+      E_field = (/0.d0, 0.d0, 0.d0/)
+
+    end function E_field
 
 
-    function B(t, r)
+    function B_field(t, r)
 
-        implicit none
-        double precision, dimension(0:3) :: B
-        double precision, intent(in) :: t
-        double precision, dimension(0:3), intent(in) :: r
+      implicit none
+      double precision, dimension(1:3) :: B_field
+      double precision, intent(in) :: t
+      double precision, dimension(1:3), intent(in) :: r
 
-        B = (/0.d0, 0.d0, 0.d0, 0.d0/)
+      B_field = (/1.d0, 0.d0, 0.d0/)
 
-    end function B
+    end function B_field
 
 end module field

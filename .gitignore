@@ -3,3 +3,6 @@ build/
 
 # Fortran module files
 *.mod
+
+# Data folder
+data/
