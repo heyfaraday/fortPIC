@@ -12,7 +12,7 @@ module boris_push
       implicit none
       double precision, dimension(1:3), intent(inout) :: v
       double precision, dimension(1:3), intent(in) :: E, B
-      double precision, intent(in) :: chargeOverMass, dt, c_speed
+      double precision, intent(in) :: chargeOverMass, c_speed, dt
 
       double precision :: f
       double precision, dimension(1:3) :: v_s, t
@@ -22,7 +22,7 @@ module boris_push
 
       v = v + f * E
       v_s = v + cross_product(v, t)
-      v = v + 2.d0 / (1 + dot_product(t, t)) * cross_product(v_s, t)
+      v = v + 2.d0 / (1.d0 + dot_product(t, t)) * cross_product(v_s, t)
       v = v + f * E
 
     end subroutine boris_push_usual
@@ -33,29 +33,23 @@ module boris_push
       implicit none
       double precision, dimension(0:3), intent(inout) :: u
       double precision, dimension(1:3), intent(in) :: E, B
-      double precision, intent(in) :: chargeOverMass, dt, c_speed
+      double precision, intent(in) :: chargeOverMass, c_speed, dt
 
-      double precision :: f_1, f_2
-      double precision, dimension(1:3) :: u_s, t
+      double precision :: f, g
+      double precision, dimension(1:3) :: v_s, t, v
 
-      call update_gamma(u)
+      f = (chargeOverMass * dt / 2.d0)
 
-      u(1:3) = u(0) * u(1:3)
+      v = v + f * E
 
-      f_1 = (chargeOverMass * dt / 2.d0)
+      g = sqrt(1.d0 + dot_product(v,v))
 
+      t = f / c_speed / g * B
 
-      u(1:3) = u(1:3) + f_1 * E
-
-      f_2 = sqrt(1.d0 + dot_product(u(1:3), u(1:3)))
-
-      t = f_1 / c_speed / f_2 * B
-
-      u_s = u(1:3) + cross_product(u(1:3), t)
-      u(1:3) = u(1:3) + 2.d0 / (1 + dot_product(t, t)) * cross_product(u_s, t)
-      u(1:3) = u(1:3) + f_1 * E
-      u(1:3) = u(1:3) / (1 + dot_product(u(1:3), u(1:3)))
-      u(1:3) = u(1:3) / u(0)
+      v_s = v + cross_product(v, t)
+      v = v + 2.d0 / (1.d0 + dot_product(t, t)) * cross_product(v_s, t)
+      v = v + f * E
+      u(1:3) = v / (1.d0 + dot_product(v,v))
 
     end subroutine boris_push_gamma
 
