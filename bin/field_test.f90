@@ -8,7 +8,7 @@ program field_test
     double precision, dimension(3) :: r
     double precision :: t
 
-    write(*, *)  E_field(t,r)(t, r)
-    write(*, *)  X_input
+    write(*, *)  E_field(t,r)
+    write(*, *)  R_input
 
 end program field_test
