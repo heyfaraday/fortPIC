@@ -6,7 +6,7 @@ import seaborn as sns
 sns.set(color_codes=True)
 sns.set_style("whitegrid")
 
-t, x1, x2, x3, v1, v2, v3 = genfromtxt('data/out.dat', delimiter=",").T
+t, x1, x2, x3, v1, v2, v3 = genfromtxt('data/out.csv', delimiter=",").T
 
 fig1 = plt.figure(figsize=(8, 8))
 fig1.subplots_adjust(left=0.0, right=1.0, top=1.0,

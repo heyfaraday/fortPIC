@@ -6,3 +6,6 @@ build/
 
 # Data folder
 data/
+
+# macOS
+*.DS_Store
